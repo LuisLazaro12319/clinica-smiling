@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BRANCHES, CLINIC, SERVICES, whatsappUrl } from '../data/clinicData';
+import { useSucursal } from '../data/sucursalElegida';
 import { WhatsAppIcon } from './BrandIcons';
 
 const DIAS = ['Cualquier día', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
@@ -7,7 +8,7 @@ const FRANJAS = ['Cualquier horario', 'Mañana', 'Tarde'];
 
 export const BookingSection: React.FC = () => {
   const [name, setName] = useState('');
-  const [sucursal, setSucursal] = useState(0);
+  const { indice: sucursal, sucursal: sede, elegir: setSucursal } = useSucursal();
   const [motivo, setMotivo] = useState('Primera consulta / revisión');
   const [dia, setDia] = useState(DIAS[0]);
   const [franja, setFranja] = useState(FRANJAS[0]);
@@ -21,7 +22,6 @@ export const BookingSection: React.FC = () => {
       return;
     }
     setError('');
-    const sede = BRANCHES[sucursal];
     const lineas = [
       `Hola! Quisiera pedir un turno en ${CLINIC.name}, sucursal ${sede.label} (${sede.zone}).`,
       `- Nombre: ${name.trim()}`,
@@ -170,7 +170,7 @@ export const BookingSection: React.FC = () => {
           </button>
 
           <p className="text-xs text-slate-500 text-center">
-            Se abre WhatsApp con el mensaje listo para enviar a {CLINIC.whatsappDisplay}.
+            Se abre WhatsApp con el mensaje listo para enviar al WhatsApp de la sucursal {sede.label} ({sede.zone}): {sede.whatsappDisplay}.
           </p>
         </form>
       </div>

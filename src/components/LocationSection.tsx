@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Camera, Check, ChevronLeft, ChevronRight, Clock, Copy, ExternalLink, MapPin, Navigation } from 'lucide-react';
 import { BRANCHES, CLINIC, SCHEDULE, getClinicStatus, whatsappUrl } from '../data/clinicData';
 import { WhatsAppIcon } from './BrandIcons';
+import { useSucursal } from '../data/sucursalElegida';
 
 const rutaFoto = (foto: string | null) => (foto ? `${import.meta.env.BASE_URL}${foto}` : null);
 
@@ -9,6 +10,7 @@ const rutaFoto = (foto: string | null) => (foto ? `${import.meta.env.BASE_URL}${
 export const LocationSection: React.FC = () => {
   const pista = useRef<HTMLDivElement>(null);
   const [activo, setActivo] = useState(0);
+  const { indice, elegir } = useSucursal();
   const [copiada, setCopiada] = useState<string | null>(null);
   const status = getClinicStatus();
   const todayIndex = new Date().getDay();
@@ -16,8 +18,19 @@ export const LocationSection: React.FC = () => {
   const alScrollear = () => {
     const el = pista.current;
     if (!el || el.clientWidth === 0) return;
-    setActivo(Math.round(el.scrollLeft / el.clientWidth));
+    const i = Math.round(el.scrollLeft / el.clientWidth);
+    setActivo(i);
+    elegir(i);
   };
+
+  /* Si la sucursal se cambió en otro lugar (por ejemplo en el formulario de turnos), la cinta se acomoda sola. */
+  useEffect(() => {
+    const el = pista.current;
+    if (!el || el.clientWidth === 0 || indice === activo) return;
+    el.scrollTo({ left: indice * el.clientWidth, behavior: 'instant' });
+    setActivo(indice);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [indice]);
 
   const irA = (i: number) => {
     const el = pista.current;

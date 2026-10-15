@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Clock, MapPin, Menu, X } from 'lucide-react';
 import { CLINIC, getClinicStatus, whatsappUrl } from '../data/clinicData';
+import { useSucursal } from '../data/sucursalElegida';
 import { InstagramIcon, WhatsAppIcon } from './BrandIcons';
 
 const LINKS = [
@@ -22,6 +23,7 @@ const horaLocal = () =>
   });
 
 export const Navbar: React.FC = () => {
+  const { sucursal } = useSucursal();
   const [open, setOpen] = useState(false);
   const [status, setStatus] = useState(() => getClinicStatus());
   const [hora, setHora] = useState(() => horaLocal());
@@ -128,7 +130,7 @@ export const Navbar: React.FC = () => {
                 <InstagramIcon className="w-[18px] h-[18px]" />
               </a>
               <a
-                href={whatsappUrl(TURNO_MSG)}
+                href={whatsappUrl(TURNO_MSG, sucursal.whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
@@ -169,7 +171,7 @@ export const Navbar: React.FC = () => {
 
             <div className="pt-4 border-t border-indigo-200 flex flex-col gap-2.5">
               <a
-                href={whatsappUrl(TURNO_MSG)}
+                href={whatsappUrl(TURNO_MSG, sucursal.whatsapp)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#25D366] text-white rounded-full text-xs font-bold"

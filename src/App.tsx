@@ -8,8 +8,10 @@ import { LocationSection } from './components/LocationSection';
 import { Footer } from './components/Footer';
 import { WhatsAppIcon } from './components/BrandIcons';
 import { CLINIC, whatsappUrl } from './data/clinicData';
+import { useSucursal } from './data/sucursalElegida';
 
 export default function App() {
+  const { sucursal } = useSucursal();
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-indigo-100 selection:text-indigo-900">
       <Navbar />
@@ -23,7 +25,7 @@ export default function App() {
       <Footer />
 
       <a
-        href={whatsappUrl(`Hola! Quisiera hacer una consulta en ${CLINIC.name}.`)}
+        href={whatsappUrl(`Hola! Quisiera hacer una consulta en ${CLINIC.name}, sucursal ${sucursal.label} (${sucursal.zone}).`, sucursal.whatsapp)}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"

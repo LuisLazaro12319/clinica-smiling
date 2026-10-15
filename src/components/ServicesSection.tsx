@@ -14,6 +14,7 @@ import {
   Stethoscope,
 } from 'lucide-react';
 import { CLINIC, SERVICES, whatsappUrl, type DentalService } from '../data/clinicData';
+import { useSucursal } from '../data/sucursalElegida';
 
 // Clases escritas completas para que Tailwind las detecte.
 const ESTILOS: Record<DentalService['icon'], { icon: React.ReactNode; badge: string; barra: string; link: string }> = {
@@ -81,6 +82,7 @@ const VELOCIDAD_CINTA = 38;
  * Se pausa al tocarla y retoma sola. La lista va duplicada para que el recorrido no tenga corte.
  */
 const CintaServicios: React.FC = () => {
+  const { sucursal } = useSucursal();
   const pista = useRef<HTMLDivElement>(null);
   const pausada = useRef(false);
   const temporizador = useRef<number | undefined>(undefined);
@@ -156,7 +158,7 @@ const CintaServicios: React.FC = () => {
               <p className="text-xs text-slate-600 leading-snug line-clamp-3">{service.description}</p>
             </div>
             <a
-              href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}.`)}
+              href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}, sucursal ${sucursal.label} (${sucursal.zone}).`, sucursal.whatsapp)}
               target="_blank"
               rel="noopener noreferrer"
               tabIndex={copia ? -1 : undefined}
@@ -176,6 +178,7 @@ const CintaServicios: React.FC = () => {
 const POR_PAGINA = 6;
 
 const GrillaServicios: React.FC = () => {
+  const { sucursal } = useSucursal();
   const pista = useRef<HTMLDivElement>(null);
   const [activa, setActiva] = useState(0);
 
@@ -228,7 +231,7 @@ const GrillaServicios: React.FC = () => {
 
                     <div className="pt-4 mt-4 border-t border-slate-100">
                       <a
-                        href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}.`)}
+                        href={whatsappUrl(`Hola! Quisiera consultar por ${service.name} en ${CLINIC.name}, sucursal ${sucursal.label} (${sucursal.zone}).`, sucursal.whatsapp)}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors ${e.link}`}
