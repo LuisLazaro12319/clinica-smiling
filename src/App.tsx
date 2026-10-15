@@ -5,6 +5,7 @@ import { ServicesSection } from './components/ServicesSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { BookingSection } from './components/BookingSection';
 import { LocationSection } from './components/LocationSection';
+import { SocialSection } from './components/SocialSection';
 import { Footer } from './components/Footer';
 import { WhatsAppIcon } from './components/BrandIcons';
 import { CLINIC, whatsappUrl } from './data/clinicData';
@@ -21,6 +22,7 @@ export default function App() {
         <ReviewsSection />
         <BookingSection />
         <LocationSection />
+      <SocialSection />
       </main>
       <Footer />
 

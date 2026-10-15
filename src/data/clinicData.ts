@@ -39,6 +39,21 @@ export const CLINIC = {
   locationLabel: 'CABA y Laferrere',
 };
 
+export interface SocialLink {
+  id: 'instagram' | 'facebook' | 'tiktok' | 'threads';
+  label: string;
+  handle: string;
+  url: string;
+}
+
+// Redes oficiales de la clínica (enlaces de su perfil de Instagram, sin parámetros de seguimiento).
+export const SOCIALS: SocialLink[] = [
+  { id: 'instagram', label: 'Instagram', handle: '@clinicadentalsmiling_srl', url: 'https://www.instagram.com/clinicadentalsmiling_srl/' },
+  { id: 'facebook', label: 'Facebook', handle: 'Clínica Dental Smiling', url: 'https://www.facebook.com/110510457901168' },
+  { id: 'tiktok', label: 'TikTok', handle: '@clinicadentalsmiling', url: 'https://www.tiktok.com/@clinicadentalsmiling' },
+  { id: 'threads', label: 'Threads', handle: '@clinicadentalsmiling_srl', url: 'https://www.threads.com/@clinicadentalsmiling_srl' },
+];
+
 export interface Branch {
   id: string;
   /** Calle y altura, como figura en su publicación. */

@@ -1,7 +1,8 @@
 import React from 'react';
 import { MapPin, Phone } from 'lucide-react';
-import { BRANCHES, CLINIC, SCHEDULE } from '../data/clinicData';
+import { BRANCHES, CLINIC, SCHEDULE, SOCIALS } from '../data/clinicData';
 import { InstagramIcon, WhatsAppIcon } from './BrandIcons';
+import { ICONOS_REDES } from './redes';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,16 +14,24 @@ export const Footer: React.FC = () => {
             <p className="text-indigo-900 leading-relaxed">
               Clínica dental: {CLINIC.servicesSummary}.
             </p>
-            <div className="flex items-center gap-2.5 pt-1">
-              <a
-                href={CLINIC.instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Instagram ${CLINIC.instagramHandle}`}
-                className="w-9 h-9 rounded-full bg-white/40 text-indigo-950 hover:bg-gradient-to-tr hover:from-[#feda75] hover:via-[#d62976] hover:to-[#4f5bd5] hover:text-white flex items-center justify-center transition-all duration-200"
-              >
-                <InstagramIcon className="w-[18px] h-[18px]" />
-              </a>
+            <p className="text-xs font-semibold text-indigo-900 pt-1">Seguinos para enterarte de promos y sorteos</p>
+            <div className="flex flex-wrap items-center gap-2.5">
+              {SOCIALS.map((s) => {
+                const { Icono, hover } = ICONOS_REDES[s.id];
+                return (
+                  <a
+                    key={s.id}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${s.label} ${s.handle}`}
+                    title={s.label}
+                    className={`w-9 h-9 rounded-full bg-white/40 text-indigo-950 ${hover} flex items-center justify-center transition-all duration-200`}
+                  >
+                    <Icono className="w-[18px] h-[18px]" />
+                  </a>
+                );
+              })}
               <a
                 href={`https://wa.me/${CLINIC.whatsappNumber}`}
                 target="_blank"
