@@ -129,7 +129,7 @@ export const ReviewsSection: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white border border-indigo-200 text-indigo-800 font-bold text-sm hover:bg-indigo-50 shadow-sm transition-colors"
           >
-            <span>Ver las {CLINIC.googleReviews} opiniones en Google</span>
+            <span>Ver todas las opiniones en Google</span>
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>

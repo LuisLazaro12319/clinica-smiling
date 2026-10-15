@@ -26,7 +26,8 @@ export const CLINIC = {
   coordinates: { lat: -34.6156182, lng: -58.3877469 },
   // Calificación visible en la ficha de Google Maps de la sucursal Monserrat.
   googleRating: '4.6',
-  googleReviews: 88,
+  // Texto, no número: son varias sucursales, así que se muestra "+100" en lugar de una cifra fija.
+  googleReviews: '+100',
   // Cifras de la ficha de Google de la sucursal Monserrat, presentadas para toda la clínica en esta demo.
   googleNote: 'Opiniones de pacientes en Google',
   googleScope: '',
