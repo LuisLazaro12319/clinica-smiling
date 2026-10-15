@@ -2,6 +2,7 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
+import { ProfessionalSection } from './components/ProfessionalSection';
 import { ReviewsSection } from './components/ReviewsSection';
 import { BookingSection } from './components/BookingSection';
 import { LocationSection } from './components/LocationSection';
@@ -19,6 +20,7 @@ export default function App() {
       <main>
         <Hero />
         <ServicesSection />
+        <ProfessionalSection />
         <ReviewsSection />
         <BookingSection />
         <LocationSection />

@@ -7,6 +7,7 @@ import { InstagramIcon, WhatsAppIcon } from './BrandIcons';
 const LINKS = [
   { href: '#top', label: 'Inicio' },
   { href: '#tratamientos', label: 'Tratamientos' },
+  { href: '#profesional', label: 'Nosotros' },
   { href: '#opiniones', label: 'Opiniones' },
   { href: '#turnos', label: 'Turnos' },
   { href: '#ubicacion', label: 'Sucursales' },

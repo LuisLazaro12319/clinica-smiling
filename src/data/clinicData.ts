@@ -180,6 +180,43 @@ export const REVIEWS: Review[] = [
   },
 ];
 
+export interface TeamMember {
+  role: string;
+  /** Nombre y foto: quedan en null hasta que la clínica los envíe. */
+  name: string | null;
+  photo: string | null;
+  /** Texto breve opcional; si falta se usa uno neutro. */
+  bio?: string;
+}
+
+// Equipo de la clínica. Los roles salen de los tratamientos que publican; nombres y fotos: A CONFIRMAR.
+export const TEAM: TeamMember[] = [
+  { role: 'Odontología general', name: null, photo: null },
+  {
+    role: 'Ortodoncia',
+    name: null,
+    photo: null,
+    bio: 'Corrección de la posición de los dientes y de la mordida, con controles en cada etapa del tratamiento.',
+  },
+  {
+    role: 'Implantes y prótesis',
+    name: null,
+    photo: null,
+    bio: 'Reposición de piezas dentales con soluciones fijas o removibles para recuperar la sonrisa.',
+  },
+  {
+    role: 'Estudios RX',
+    name: null,
+    photo: null,
+    bio: 'Radiografías para diagnosticar y planificar cada tratamiento.',
+  },
+  {
+    role: 'Atención al paciente',
+    name: null,
+    photo: null,
+    bio: 'Coordinación de turnos y consultas en cada una de las sucursales.',
+  },
+];
 export interface DentalService {
   id: string;
   name: string;
