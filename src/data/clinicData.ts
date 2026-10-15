@@ -72,7 +72,7 @@ export const BRANCHES: Branch[] = [
     mapQuery: '-34.6156182,-58.3877469',
     whatsapp: '5491155239918',
     whatsappDisplay: '11 5523-9918',
-    photo: null,
+    photo: 'images/sucursal-monserrat.jpg',
     showSchedule: true,
   },
   {
@@ -84,7 +84,7 @@ export const BRANCHES: Branch[] = [
     mapQuery: 'Solís 283, Ciudad de Buenos Aires',
     whatsapp: '5491167523939',
     whatsappDisplay: '11 6752-3939',
-    photo: null,
+    photo: 'images/sucursal-congreso.jpg',
     showSchedule: false,
   },
   {
@@ -96,7 +96,7 @@ export const BRANCHES: Branch[] = [
     mapQuery: 'Matheu 29, Ciudad de Buenos Aires',
     whatsapp: '5491171129824',
     whatsappDisplay: '11 7112-9824',
-    photo: null,
+    photo: 'images/sucursal-balvanera.jpg',
     showSchedule: false,
   },
   {
@@ -108,7 +108,7 @@ export const BRANCHES: Branch[] = [
     mapQuery: 'Av. Rivadavia 7034, Ciudad de Buenos Aires',
     whatsapp: '5491125461766',
     whatsappDisplay: '11 2546-1766',
-    photo: null,
+    photo: 'images/sucursal-flores.jpg',
     showSchedule: false,
   },
   {
