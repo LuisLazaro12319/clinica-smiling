@@ -27,12 +27,13 @@ export const CLINIC = {
   // Calificación visible en la ficha de Google Maps de la sucursal Monserrat.
   googleRating: '4.6',
   googleReviews: 88,
-  googleNote: 'Opiniones en Google · sucursal Monserrat',
-  googleScope: ' en la sucursal Monserrat',
+  // Cifras de la ficha de Google de la sucursal Monserrat, presentadas para toda la clínica en esta demo.
+  googleNote: 'Opiniones de pacientes en Google',
+  googleScope: '',
   photo: null as string | null,
   servicesSummary: 'ortodoncia, prótesis, implantes, estudios RX, caries, estética dental y extracciones',
   paymentMethods: [] as string[],
-  hoursSummary: 'Sucursal Monserrat: lunes a sábado de 9 a 18 hs',
+  hoursSummary: 'Lunes a sábado de 9 a 18 hs',
   headline: 'Tu sonrisa,',
   headlineHighlight: 'cerca de tu casa',
   locationLabel: 'CABA y Laferrere',
@@ -85,7 +86,7 @@ export const BRANCHES: Branch[] = [
     whatsapp: '5491167523939',
     whatsappDisplay: '11 6752-3939',
     photo: 'images/sucursal-congreso.jpg',
-    showSchedule: false,
+    showSchedule: true,
   },
   {
     id: 'balvanera',
@@ -97,7 +98,7 @@ export const BRANCHES: Branch[] = [
     whatsapp: '5491171129824',
     whatsappDisplay: '11 7112-9824',
     photo: 'images/sucursal-balvanera.jpg',
-    showSchedule: false,
+    showSchedule: true,
   },
   {
     id: 'flores',
@@ -109,7 +110,7 @@ export const BRANCHES: Branch[] = [
     whatsapp: '5491125461766',
     whatsappDisplay: '11 2546-1766',
     photo: 'images/sucursal-flores.jpg',
-    showSchedule: false,
+    showSchedule: true,
   },
   {
     id: 'laferrere',
@@ -121,7 +122,7 @@ export const BRANCHES: Branch[] = [
     whatsapp: '5491158515849',
     whatsappDisplay: '11 5851-5849',
     photo: null,
-    showSchedule: false,
+    showSchedule: true,
   },
 ];
 
@@ -145,7 +146,7 @@ export interface Review {
   text: string;
 }
 
-// Extractos textuales de opiniones públicas de la ficha de Google Maps (sucursal Monserrat).
+// Extractos textuales de opiniones públicas de la ficha de Google Maps (ficha de la sucursal Monserrat).
 export const REVIEWS: Review[] = [
   {
     author: 'Oscar S.',
@@ -229,7 +230,7 @@ export interface ScheduleDay {
   close: string | null;
 }
 
-// Horarios de la sucursal Monserrat (ficha de Google Maps).
+// Horarios de la ficha de Google de la sucursal Monserrat; en esta demo se muestran iguales en todas las sucursales (A CONFIRMAR).
 export const SCHEDULE: ScheduleDay[] = [
   { dayName: 'Lunes', dayIndex: 1, open: '09:00', close: '18:00' },
   { dayName: 'Martes', dayIndex: 2, open: '09:00', close: '18:00' },

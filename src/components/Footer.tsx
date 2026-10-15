@@ -36,7 +36,7 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            <div className="text-xs font-bold uppercase tracking-wider text-indigo-950">Horarios · sucursal Monserrat</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-indigo-950">Horarios</div>
             <ul className="space-y-1.5 text-indigo-900">
               {SCHEDULE.map((d) => (
                 <li key={d.dayName} className="flex justify-between gap-6 max-w-xs">
